@@ -33,7 +33,8 @@ int bottom_up_cut_rod(int p[], int n);
  int memoized_cut_rod(int p[], int n)
 {
     int r[n + 1];
-    for (int i = 0; i < n; i++) { r[i] = INT_MIN; }
+     r[0] = 0;
+    for (int i = 1; i <= n; i++) { r[i] = INT_MIN; }
     return memoized_cut_rod_aux(p, n, r);
 }
 
@@ -45,7 +46,7 @@ int memoized_cut_rod_aux(int p[], int n, int r[])
      else
      {
          q = INT_MIN;
-        for (int i = 1; i < n; i++)
+        for (int i = 1; i <= n; i++)
         {
             q = max(q, p[i] + memoized_cut_rod_aux(p, n - i, r));
         }
@@ -72,5 +73,17 @@ int bottom_up_cut_rod(int p[], int n)
 
 int main()
 {
-    return 0;
+     int n;
+     scanf("%d", &n);
+     int p[n + 1];
+     p[0] = 0;
+     for (int i = 1; i <= n; i++)
+     {
+         scanf("%d", &p[i]);
+     }
+     int r = memoized_cut_rod(p, n);
+     //int r = bottom_up_cut_rod(p, n);
+
+     printf("Best: %d\n", r);
+     return 0;
 }
