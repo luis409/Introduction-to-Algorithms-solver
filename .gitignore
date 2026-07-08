@@ -11,9 +11,9 @@ doc/*.txt
 # ignore all .pdf files in the doc/ directory and any of its subdirectories
 doc/**/*.pdf
 # ignore all .out files
-/*.out
+*.out
 # ignore all .in files
-/*.in
+*.in
 # ignore cmake-build-debug
 cmake-build-debug/
 #ignore CMakeLists.txt
